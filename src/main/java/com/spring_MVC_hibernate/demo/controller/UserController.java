@@ -16,8 +16,7 @@ public class UserController {
         this.service = service;
     }
 
-
-    @GetMapping("/")
+    @GetMapping
     public String index(Model model) {
         model.addAttribute("users", service.findAll());
         return "index";
@@ -30,8 +29,7 @@ public class UserController {
 
     @PostMapping("/new")
     public String create(@ModelAttribute("user") User user) {
-        System.out.println(user);
-        service.save(user);
+        service.saveUser(user.getName(), user.getCity(), user.isMarried());
         return "redirect:/";
     }
 
@@ -50,6 +48,12 @@ public class UserController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") long id) {
         service.deleteById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/clear")
+    public String clear() {
+        service.deleteAll();
         return "redirect:/";
     }
 }

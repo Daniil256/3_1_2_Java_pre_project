@@ -7,8 +7,7 @@
 </head>
 <body>
 <form method="post" action="#" th:action="@{/edit}" th:object="${user}">
-    <input type="text" hidden="hidden" th:field="*{id}">
-
+    <input hidden="hidden" th:field="*{id}">
     <label>
         <input type="text" placeholder="Имя" th:field="*{name}">
     </label>

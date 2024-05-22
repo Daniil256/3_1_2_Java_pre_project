@@ -22,8 +22,8 @@ public class User {
     public User() {
 
     }
-    public User(long id, String city, String name, boolean married) {
-        this.id = id;
+
+    public User( String city, String name, boolean married) {
         this.city = city;
         this.name = name;
         this.married = married;

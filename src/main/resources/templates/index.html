@@ -13,13 +13,14 @@
             <span th:text="${user.getCity()}">city</span>
             <span th:text="${user.isMarried() ? 'В браке' : 'Не в браке'}">married</span>
 
-            <a th:href="@{/edit?id={id}(id=${user.getId()})}">Edit</a>
-            <a th:href="@{/delete?id={id}(id=${user.getId()})}">Delete</a>
+            <a th:href="@{/edit?id={id}(id=${user.getId()})}">Изменить</a>
+            <a th:href="@{/delete?id={id}(id=${user.getId()})}">Удалить</a>
         </div>
     </th:block>
 </div>
 <div>
     <a href="new">Создать нового пользователя</a>
+    <a href="clear">Удалить всех пользователей</a>
 </div>
 </body>
 </html>
