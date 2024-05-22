@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link th:href="@{styles/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<form method="post" action="#" th:action="@{/edit}" th:object="${user}">
+    <input type="text" hidden="hidden" th:field="*{id}">
+
+    <label>
+        <input type="text" placeholder="Имя" th:field="*{name}">
+    </label>
+    <label>
+        <input type="text" placeholder="Город" th:field="*{city}">
+    </label>
+    <label>
+        <input type="checkbox" th:field="*{married}">
+        <span>В браке</span>
+    </label>
+    <input type="submit" value="Обновить"/>
+</form>
+</body>
+</html>
