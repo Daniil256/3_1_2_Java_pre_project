@@ -1,6 +1,5 @@
 package com.spring_MVC_hibernate.demo.controller;
 
-import com.spring_MVC_hibernate.demo.service.IUserService;
 import com.spring_MVC_hibernate.demo.model.User;
 import com.spring_MVC_hibernate.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
