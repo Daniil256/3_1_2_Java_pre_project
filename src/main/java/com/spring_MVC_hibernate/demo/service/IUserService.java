@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public interface IUserService extends CrudRepository<User, Long> {
     @Modifying
-    @Query(value ="insert into users (name, city, married) values (?1, ?2, ?3)",
+    @Query(value = "insert into users (name, city, married) values (?1, ?2, ?3)",
             nativeQuery = true)
     @Transactional
     void saveUser(String name, String city, Boolean married);
