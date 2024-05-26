@@ -29,7 +29,7 @@ public class UserController {
 
     @PostMapping("/new")
     public String create(@ModelAttribute("user") User user) {
-        service.saveUser(user);
+        service.saveUser(user.getName(), user.getCity(), user.isMarried());
         return "redirect:/";
     }
 

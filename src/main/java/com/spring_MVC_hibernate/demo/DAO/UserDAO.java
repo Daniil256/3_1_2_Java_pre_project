@@ -1,48 +1,47 @@
-package com.spring_MVC_hibernate.demo.service;
+package com.spring_MVC_hibernate.demo.DAO;
 
-import com.spring_MVC_hibernate.demo.DAO.UserDAO;
 import com.spring_MVC_hibernate.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Service
-public class UserService implements IUserService {
-    private final UserDAO userDAO;
+@Repository
+public class UserDAO {
 
+    IUserDAO userDAO;
+    
     @Autowired
-    public UserService(UserDAO userDAO) {
+    public UserDAO(IUserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
-    @Override
     public void saveUser(String name, String city, boolean isMarried) {
         userDAO.saveUser(name, city, isMarried);
     }
 
-    @Override
+
     public Iterable<User> findAllUsers() {
-        return userDAO.findAllUsers();
+        return userDAO.findAll();
     }
 
-    @Override
+
     public Optional<User> findByIdUser(Long id) {
-        return userDAO.findByIdUser(id);
+        return userDAO.findById(id);
     }
 
-    @Override
+
     public void deleteByIdUser(Long id) {
-        userDAO.deleteByIdUser(id);
+        userDAO.deleteById(id);
     }
 
-    @Override
+
     public void deleteAllUsers() {
-        userDAO.deleteAllUsers();
+        userDAO.deleteAll();
     }
 
-    @Override
+
     public void updateUser(User user) {
-        userDAO.updateUser(user);
+        userDAO.save(user);
     }
 }
